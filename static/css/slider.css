@@ -1,0 +1,104 @@
+/* static/css/slider.css */
+
+.pro-slider-container {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+}
+
+.pro-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 100% 0 0); /* Hide slides by default */
+    transition: clip-path 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.pro-slide.active {
+    clip-path: inset(0 0 0 0); /* Reveal active slide */
+}
+
+.slide-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    transform: scale(1.1);
+    transition: transform 6s ease-out;
+}
+
+.pro-slide.active .slide-bg {
+    transform: scale(1); /* Ken Burns effect */
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 90%;
+}
+
+.slide-title, .slide-subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.pro-slide.active .slide-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
+}
+
+.pro-slide.active .slide-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 1s;
+}
+
+.slide-title { font-size: 4.5rem; margin: 0 0 1rem 0; }
+.slide-subtitle { font-size: 1.2rem; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    position: relative;
+}
+
+.dot.active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: progress 6s linear forwards;
+}
+
+@keyframes progress {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}

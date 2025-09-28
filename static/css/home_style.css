@@ -1,0 +1,360 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&display=swap');
+
+/* CSS Variables for colors */
+:root {
+    --primary-color: #4A90E2; /* A calming blue */
+    --secondary-color: #50E3C2; /* A vibrant aqua */
+    --dark-color: #333333;
+    --light-color: #FDFDFD;
+    --text-color: #555555;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    background-color: var(--light-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0,0,0,0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Header and Navigation */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 75px;
+}
+
+nav .logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+nav .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+nav .nav-links li { margin: 0 1.5rem; }
+
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    left: 50%;
+    bottom: -5px;
+    transition: all 0.3s ease;
+}
+
+nav .nav-links a:hover { color: var(--primary-color); }
+nav .nav-links a:hover::after { width: 100%; left: 0; }
+
+.login-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+}
+
+.hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+
+/* Main content padding for fixed navbar */
+main {
+    padding-top: 75px;
+}
+/* Slider Section */
+.slider-container {
+    height: calc(100vh - 75px);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active { opacity: 1; }
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.slide-content { z-index: 1; max-width: 800px; padding: 1rem; }
+.slide-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    animation: slideInDown 1s ease-out;
+}
+.slide-content p {
+    font-size: 1.3rem;
+    animation: slideInUp 1s ease-out;
+}
+
+@keyframes slideInDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Sections Styling */
+.content-section, .asanas-section, .gurus-section {
+    padding: 6rem 0;
+    text-align: center;
+}
+.asanas-section { background: #f4f8fc; }
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+.content-section p { max-width: 800px; margin: 0 auto; }
+
+/* Asanas Grid */
+.asanas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+.asana-card {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.asana-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(74, 144, 226, 0.2);
+}
+.asana-card img { width: 100%; height: 300px; object-fit: cover; display: block; }
+.card-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem 1.5rem 1.5rem;
+    color: #fff;
+}
+.card-overlay h3 { font-family: var(--font-heading); font-size: 1.5rem; }
+
+/* Gurus Section */
+.gurus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
+.guru-card {
+    background: var(--light-color);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+.guru-card:hover { transform: scale(1.05); }
+.guru-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--secondary-color);
+}
+.guru-card h4 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+
+/* Footer */
+footer { background: var(--dark-color); color: #ccc; padding-top: 4rem; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left;}
+.footer-about h3 { font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 1rem; }
+.footer-links h4, .footer-social h4 { font-family: var(--font-heading); font-size: 1.2rem; color: #fff; margin-bottom: 1rem; }
+.footer-links ul { list-style: none; }
+.footer-links ul li a { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
+.footer-links ul li a:hover { color: var(--secondary-color); }
+.social-media a {
+    color: #fff; margin-right: 1rem; font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-media a:hover { color: var(--secondary-color); transform: translateY(-3px); }
+.footer-bottom { text-align: center; padding: 1.5rem 0; margin-top: 3rem; border-top: 1px solid #444; }
+
+/* Popup (Modal) */
+.popup-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center;
+    align-items: center; z-index: 2000; opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.popup-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+.popup-content {
+    background: #fff; padding: 2.5rem; border-radius: 10px; width: 90%;
+    max-width: 600px; text-align: center; position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.popup-container.active .popup-content {
+    transform: scale(1);
+}
+.close-btn { position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; cursor: pointer; color: #777; }
+#popup-title { font-family: var(--font-heading); font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem; }
+.start-session-btn {
+    background: linear-gradient(45deg, #f0932b, #e84393);
+    color: #fff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none;
+    font-weight: 600; border: none; cursor: pointer; margin-top: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.start-session-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(232, 67, 147, 0.3); }
+
+/* Scroll Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h2 { font-size: 2.4rem; }
+    .asanas-grid, .gurus-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    nav .nav-links {
+        position: fixed; /* Use fixed positioning */
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Add padding to transition */
+        padding: 0; /* Start with no padding */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    nav .nav-links.active {
+        max-height: 300px;
+        padding: 1rem 0; /* Add padding when active */
+    }
+    nav .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0; /* Adjust padding for list items */
+    }
+    .hamburger { display: block; }
+    .slide-content h1 { font-size: 2.5rem; }
+    .asanas-grid, .gurus-grid { grid-template-columns: 1fr; }
+}
+
+/* Inside .popup-content */
+.popup-content #popup-img {
+    max-width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: contain; /* Use 'contain' to fit the whole image without cropping */
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* For smaller screens, adjust image height */
+@media (max-width: 768px) {
+    .popup-content #popup-img {
+        height: 180px;
+    }
+}
