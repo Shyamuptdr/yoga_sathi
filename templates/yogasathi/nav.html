@@ -1,0 +1,16 @@
+{% load static %}
+<header>
+    <nav>
+        <a href="{% url 'home' %}" class="logo">Yoga Sathi</a>
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'home' %}#about">About</a></li>
+            <li><a href="{% url 'home' %}#asanas">Asanas</a></li>
+            <li><a href="{% url 'home' %}#gurus">Team</a></li>
+        </ul>
+        <a href="{% url 'login' %}" class="login-button">Login</a>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>

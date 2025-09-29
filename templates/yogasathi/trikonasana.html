@@ -1,7 +1,7 @@
 {% extends 'yogasathi/base.html' %} 
 {% load static %}
 
-{% block title %}Yoga Sathi - Surya Namaskar Coach{% endblock %}
+{% block title %}Yoga Sathi - Trikonasana Coach{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
@@ -11,7 +11,6 @@
         /* FIX 1: Nav Bar के लिए जगह बनाने हेतु <main> में टॉप पैडिंग जोड़ें (75px) */
         main {
             padding-top: 75px; 
-            /* बाकी का बचा हुआ viewport height उपयोग करें */
             height: 100vh;
         }
         
@@ -71,11 +70,11 @@
 
         <aside class="sidebar">
             <div id="referencePoseContainer" class="info-card">
-                <h4 id="poseName" class="pose-title">Surya Namaskar</h4>
+                <h4 id="poseName" class="pose-title">Trikonasana (Left Side)</h4>
                 <div class="reference-image-wrapper">
                     <img
                         id="referenceImage"
-                        src="{% static 'images/surya_namaskar/Surya_Namaskar.png' %}"
+                        src="{% static 'images/asanas/Trikonasana.png' %}"
                         alt="Reference Pose"
                     />
                 </div>
@@ -148,5 +147,5 @@
       crossorigin="anonymous"
     ></script>
     
-    <script src="{% static 'js/surya_namaskar.js' %}"></script>
+    <script src="{% static 'js/trikonasana.js' %}"></script>
 {% endblock %}

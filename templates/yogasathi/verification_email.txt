@@ -1,0 +1,12 @@
+Hello {{ user.username }},
+
+Thank you for signing up for Yoga Sathi!
+
+To complete your registration and activate your account, please click on the link below:
+
+{{ link }}
+
+If you did not sign up for this service, please ignore this email.
+
+---
+Yoga Sathi Team

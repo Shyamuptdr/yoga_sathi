@@ -19,12 +19,14 @@
 </head>
 <body>
 
-    {% include 'yogasathi/navsession.html' %}
+    {% include 'yogasathi/nav.html' %}
 
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
+    {% include 'yogasathi/footer.html' %}
 
     <script src="{% static 'js/home_script.js' %}"></script>
 

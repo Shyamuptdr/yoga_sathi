@@ -1,14 +1,15 @@
 :root {
-  --bg-color: #0f0f1b;
-  --panel-bg: rgba(30, 30, 50, 0.4);
-  --glass-blur: 20px;
-  --border-color: rgba(128, 128, 255, 0.2);
-  --primary-accent: #00ffff; 
-  --secondary-accent: #ff00ff;
-  --text-light: #f0f0f0;
-  --text-dark: #a0a0c0;
+  /* New Light Theme Colors from the image */
+  --bg-color: #f7f7f7; /* Light background */
+  --panel-bg: #ffffff; /* White panel */
+  --glass-blur: 0px; /* Removing blur */
+  --border-color: #e0e0e0; /* Light border */
+  --primary-accent: #007bff; /* Primary Blue */
+  --secondary-accent: #6c757d; /* Secondary Gray */
+  --text-light: #343a40; /* Dark text on light background */
+  --text-dark: #6c757d; /* Lighter dark text */
   --font-main: "Poppins", sans-serif;
-  --font-title: "Orbitron", sans-serif;
+  --font-title: "Georgia", serif; /* Assuming a classic font for titles */
 }
 
 * {
@@ -21,36 +22,132 @@ body {
   background-color: var(--bg-color);
   color: var(--text-light);
   font-family: var(--font-main);
-  overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow-y: auto; /* Allow scrolling for main page content */
+  background: var(--bg-color); 
 }
 
+/* --- Navigation/Header from the New UI --- */
+.new-header {
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: white; 
+    border-bottom: 1px solid var(--border-color);
+}
+
+.new-header .logo-text {
+    font-size: 1.5rem;
+    font-family: var(--font-title);
+    color: var(--text-light);
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-accent);
+}
+
+.new-login-btn {
+    background-color: var(--primary-accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.new-login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 60vh;
+    min-height: 400px;
+    background: #343a40; 
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-family: var(--font-title);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.session-title {
+    text-align: center;
+    padding: 20px 0 10px;
+    font-family: var(--font-title);
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+/* --- LIVE SESSION HORIZONTAL LAYOUT (Restored) --- */
 .main-container {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  min-height: 80vh; /* Use min-height instead of fixed height */
+  width: 90vw;
+  max-width: 1400px;
+  margin: 0 auto 50px; /* Center with bottom margin */
   perspective: 1500px;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  background-color: var(--panel-bg);
 }
 
-/* Main Content (Webcam)*/
+/* Main Content (Webcam) */
 .main-content {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   transform-style: preserve-3d;
+  padding: 1.5rem;
+  min-width: 0;
 }
 
 .webcam-panel {
   width: 95%;
   height: 95%;
   position: relative;
-  border-radius: 2rem;
+  border-radius: 1rem; 
   overflow: hidden;
-  border: 2px solid var(--border-color);
-  box-shadow: 0 0 50px rgba(0, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   transform: rotateY(0deg) rotateX(0deg); 
   transition: transform 0.1s linear;
+  background-color: var(--bg-color); 
 }
 
 #webcam,
@@ -75,7 +172,8 @@ body {
 }
 .logo-icon {
   font-size: 5rem;
-  text-shadow: 0 0 20px var(--primary-accent);
+  text-shadow: none; 
+  color: var(--primary-accent);
 }
 .logo-text {
   font-family: var(--font-title);
@@ -86,34 +184,32 @@ body {
   margin-top: 1rem;
 }
 
-/* Sidebar / Control Panel */
+/* Sidebar / Control Panel (Restored) */
 .sidebar {
   width: 380px;
   flex-shrink: 0;
-  background: var(--panel-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--bg-color); /* Light background for the sidebar */
   border-left: 1px solid var(--border-color);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .info-card {
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--panel-bg);
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
   transform: translateZ(0);
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: box-shadow 0.3s;
 }
 .info-card:hover {
-  transform: translateZ(25px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 255, 255, 0.5);
+  transform: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-accent);
 }
 
 .pose-title {
@@ -122,15 +218,14 @@ body {
   font-size: 1.5rem;
   font-family: var(--font-title);
   color: var(--primary-accent);
-  text-shadow: 0 0 10px var(--primary-accent);
+  text-shadow: none; 
 }
 .reference-image-wrapper{
   height: 70%;
   width: 70%;
   display: flex;
   justify-content: center;
-  justify-items: center;
-  justify-self: center;
+  margin: 0 auto; 
 }
 
 #referenceImage {
@@ -141,49 +236,89 @@ body {
 .pose-timer-wrapper {
   justify-content: center;
   margin-top: 1rem;
+  text-align: center;
 }
 .card-title {
-  font-family: var(--font-title);
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--text-light);
 }
 
+/* Feedback box update */
 .feedback-box {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--border-color);
   color: var(--text-dark);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
 }
 .feedback-box.success {
-  background: var(--primary-accent);
-  color: #000;
+  background: #28a745; 
+  color: #fff;
   font-weight: 600;
 }
 .feedback-box.warning {
-  background: var(--secondary-accent);
-  color: #000;
+  background: #ffc107; 
+  color: #343a40;
   font-weight: 600;
 }
 
+.progress-bar-container {
+    background-color: var(--border-color);
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
 .progress-bar {
-  background: linear-gradient(
-    90deg,
-    var(--secondary-accent),
-    var(--primary-accent)
-  );
+  height: 100%;
+  width: 0%;
+  background: var(--primary-accent);
+  transition: width 0.3s ease;
 }
 
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+/* BUTTON STYLES: UPDATED to match the solid 'Login' button style */
 .btn {
-  background: transparent;
-  color: var(--text-light);
-  border: 2px solid var(--border-color);
+  background: var(--primary-accent); /* Solid background by default */
+  color: white; /* White text for contrast */
+  border: 1px solid var(--primary-accent); /* Solid border */
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border-radius: 0.25rem; /* Match login button radius */
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 .btn-start {
-  border-color: var(--primary-accent);
-  color: var(--primary-accent);
-  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3);
+  background-color: #28a745; /* Green for Start */
+  border-color: #28a745;
 }
 .btn-start:hover {
-  background: var(--primary-accent);
-  color: var(--bg-color);
-  box-shadow: 0 0 20px var(--primary-accent);
+  background-color: #1e7e34;
+  border-color: #1e7e34;
+  box-shadow: 0 2px 5px rgba(40, 167, 69, 0.5);
+  color: white;
+}
+.btn-stop {
+  background-color: #dc3545; /* Red for Stop */
+  border-color: #dc3545;
+}
+.btn-stop:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+    box-shadow: 0 2px 5px rgba(220, 53, 69, 0.5);
+    color: white;
 }
 
 /* MOBILE RESPONSIVE */
@@ -191,25 +326,122 @@ body {
   .main-container {
     flex-direction: column;
     perspective: none;
+    min-height: 50vh;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
   }
   .main-content {
     height: 50vh;
+    padding: 10px;
   }
   .webcam-panel {
     width: 100%;
     height: 100%;
     border-radius: 0;
     border: none;
+    box-shadow: none;
   }
   .sidebar {
     width: 100%;
     flex-grow: 1;
     overflow-y: auto;
     border-left: none;
-    border-top: 2px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    padding: 1rem;
+    box-shadow: none;
   }
   .info-card:hover {
     transform: none;
     box-shadow: none;
   }
+
+  /* Mobile header/hero adjustments */
+  .new-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--primary-accent); /* Use accent for better contrast on mobile */
+  }
+  .new-header .logo-text, .nav-links a, .new-login-btn {
+      color: white;
+  }
+  .nav-links {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .nav-links a {
+      margin: 0.5rem 0;
+  }
+  .hero-section {
+    display: none; 
+  }
+}
+
+/* Update static/css/main.css */
+
+/* Re-using New Login Button style for all primary buttons */
+.new-login-btn {
+    /* Existing styles for rounded corners, padding, etc. */
+    background: linear-gradient(135deg, #00C6FF 0%, #0072FF 100%); /* Blue gradient */
+    border: none;
+    border-radius: 2rem; /* Extremely rounded corners to match the image */
+    padding: 0.75rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+.new-login-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Updated BUTTON STYLES: Matching the new gradient design */
+.btn {
+    /* Generic button styles remain */
+    padding: 0.75rem 1rem;
+    width: 100%;
+    margin-top: 0.8rem; /* Increased spacing */
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none; /* Remove border */
+    border-radius: 2rem; /* Highly rounded corners */
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-start {
+    /* Green gradient for Start button */
+    background: linear-gradient(135deg, #4CAF50 0%, #1976D2 100%); /* Green to Blue */
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+.btn-start:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1E88E5 0%, #0D47A1 100%); /* Deeper Blue gradient on hover */
+}
+
+.btn-stop {
+    /* Red gradient for Stop button */
+    background: linear-gradient(135deg, #FF6F00 0%, #D84315 100%); /* Orange to Red */
+    box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
+}
+.btn-stop:hover:not(:disabled) {
+    box-shadow: 0 6px 20px rgba(255, 111, 0, 0.6);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #D84315 0%, #BF360C 100%); /* Deeper Red gradient on hover */
+}
+
+.btn:disabled {
+    background: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }

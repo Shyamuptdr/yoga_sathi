@@ -1,0 +1,26 @@
+{% extends 'yogasathi/base_layout.html' %}
+{% load static %}
+
+{% block title %}Registration Almost Complete{% endblock %}
+
+{% block content %}
+<div class="container" style="min-height: 50vh; padding: 4rem 0; text-align: center;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+        <h1 style="color: var(--secondary-color); margin-bottom: 1.5rem;">Registration Almost Complete!</h1>
+        
+        <i class="fas fa-envelope-open-text" style="font-size: 4em; color: var(--primary-color); margin-bottom: 1rem;"></i>
+
+        <p style="font-size: 1.1rem; color: var(--text-color); margin-bottom: 1.5rem;">
+            Thank you for creating an account with Yoga Sathi.
+        </p>
+        <p style="font-weight: 600; color: var(--dark-color); margin-bottom: 2rem;">
+            We have sent a verification link to your email address. Please check your inbox (and spam folder) to activate your account.
+        </p>
+
+        <a href="{% url 'home' %}" class="login-button" 
+           style="background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 600;">
+            Go to Home
+        </a>
+    </div>
+</div>
+{% endblock content %}

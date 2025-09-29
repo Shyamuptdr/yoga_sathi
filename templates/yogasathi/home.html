@@ -1,203 +1,150 @@
+{% extends 'yogasathi/base_layout.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Yoga Sathi</title>
-    <link rel="stylesheet" href="{% static 'css/home_style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
 
+{% block title %}Yoga Sathi - Home{% endblock %}
+
+{% block content %}
     <div class="preloader">
         <div class="spinner"></div>
     </div>
 
-    <header>
-        <nav>
-            <a href="#" class="logo">Yoga Sathi</a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#asanas">Asanas</a></li>
-                <li><a href="#gurus">Team</a></li>
-            </ul>
-            <a href="#" class="login-button">Login</a>
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
+    <section class="slider-container">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1820&auto=format&fit=crop');">
+            <div class="slide-content">
+                <h1>Discover Your Inner Peace</h1>
+                <p>A journey of self-discovery through the practice of yoga.</p>
             </div>
-        </nav>
-    </header>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1770&auto=format&fit:crop');">
+            <div class="slide-content">
+                <h1>Balance Your Mind & Body</h1>
+                <p>Achieve harmony and strength, one breath at a time.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1926&auto=format&fit:crop');">
+             <div class="slide-content">
+                <h1>Start Your Journey Today</h1>
+                <p>Personalized sessions for beginners to advanced practitioners.</p>
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <section class="slider-container">
-            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1820&auto=format&fit=crop');">
-                <div class="slide-content">
-                    <h1>Discover Your Inner Peace</h1>
-                    <p>A journey of self-discovery through the practice of yoga.</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1770&auto=format&fit=crop');">
-                <div class="slide-content">
-                    <h1>Balance Your Mind & Body</h1>
-                    <p>Achieve harmony and strength, one breath at a time.</p>
-                </div>
-            </div>
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=1926&auto=format&fit=crop');">
-                 <div class="slide-content">
-                    <h1>Start Your Journey Today</h1>
-                    <p>Personalized sessions for beginners to advanced practitioners.</p>
-                </div>
-            </div>
-        </section>
+    <section id="about" class="content-section reveal">
+        <div class="container">
+            <h2>The Essence of Yoga</h2>
+            <p>Originating in ancient India, yoga is a holistic practice uniting mind, body, and spirit. It combines physical postures (asanas), breathing techniques (pranayama), and meditation to foster self-awareness, reduce stress, and enhance overall well-being. It's not just an exercise, but a way of life.</p>
+        </div>
+    </section>
 
-        <section id="about" class="content-section reveal">
-            <div class="container">
-                <h2>The Essence of Yoga</h2>
-                <p>Originating in ancient India, yoga is a holistic practice uniting mind, body, and spirit. It combines physical postures (asanas), breathing techniques (pranayama), and meditation to foster self-awareness, reduce stress, and enhance overall well-being. It's not just an exercise, but a way of life.</p>
-            </div>
-        </section>
-
-              <section id="asanas" class="asanas-section reveal">
-            <div class="container">
-                <h2>Choose Your Asana</h2>
-                <div class="asanas-grid">
-                    <div class="asana-card" 
-                         data-title="Surya Namaskar"
-                         data-details="Surya Namaskar, or Sun Salutation, is a sequence of 12 powerful yoga poses. It is a fantastic cardiovascular workout that improves strength and flexibility throughout the body."
-                         data-img="{% static 'images/asanas/Surya_Namaskar.png' %}">
-                        <img src="{% static 'images/asanas/Surya_Namaskar.png' %}" alt="Surya Namaskar">
-                        <div class="card-overlay"><h3>Surya Namaskar</h3></div>
-                    </div>
-                    <div class="asana-card"
-                         data-title="Sudarshan Kriya"
-                         data-details="Sudarshan Kriya is a powerful rhythmic breathing technique that harmonizes the body, mind, and emotions. It helps to reduce stress and release negative emotions."
-                         data-img="{% static 'images/asanas/Sudarshan_Kriya.png' %}">
-                        <img src="{% static 'images/asanas/Sudarshan_Kriya.png' %}" alt="Sudarshan Kriya">
-                        <div class="card-overlay"><h3>Sudarshan Kriya</h3></div>
-                    </div>
-                    <div class="asana-card"
-                         data-title="Trikonasana"
-                         data-details="Trikonasana, or Triangle Pose, is a foundational standing pose that strengthens the legs, stretches the hips and spine, and improves overall balance and stability."
-                         data-img="{% static 'images/asanas/Trikonasana.png' %}">
-                        <img src="{% static 'images/asanas/Trikonasana.png' %}" alt="Trikonasana">
-                        <div class="card-overlay"><h3>Trikonasana</h3></div>
-                    </div>
-                    <div class="asana-card"
-                         data-title="Vrikshasana"
-                         data-details="Vrikshasana, or Tree Pose, improves balance and stability. It strengthens the thighs, calves, ankles, and back, while also stretching the groin and inner thighs."
-                         data-img="{% static 'images/asanas/Vrikshasana.png' %}">
-                        <img src="{% static 'images/asanas/Vrikshasana.png' %}" alt="Vrikshasana">
-                        <div class="card-overlay"><h3>Vrikshasana</h3></div>
-                    </div>
-                    <div class="asana-card"
-                         data-title="Bhujangasana"
-                         data-details="Bhujangasana, or Cobra Pose, is a gentle back-bending asana that increases spinal flexibility, strengthens the back muscles, and opens the chest and shoulders."
-                         data-img="{% static 'images/asanas/Bhujangasana.png' %}">
-                        <img src="{% static 'images/asanas/Bhujangasana.png' %}" alt="Bhujangasana">
-                        <div class="card-overlay"><h3>Bhujangasana</h3></div>
-                    </div>
-                    <div class="asana-card"
-                         data-title="Shavasana"
-                         data-details="Shavasana, or Corpse Pose, is a resting pose for deep relaxation. It helps to cool down the body and integrate the benefits of the yoga practice."
-                         data-img="{% static 'images/asanas/Bhujangasana.png' %}">
-                        <img src="{% static 'images/asanas/Bhujangasana.png' %}" alt="Shavasana">
-                        <div class="card-overlay"><h3>Shavasana</h3></div>
-                    </div>
+    <section id="asanas" class="asanas-section reveal">
+        <div class="container">
+            <h2>Choose Your Asana</h2>
+            <div class="asanas-grid">
+                <div class="asana-card" 
+                     data-title="Surya Namaskar"
+                     data-details="Surya Namaskar, or Sun Salutation, is a sequence of 12 powerful yoga poses. It is a fantastic cardiovascular workout that improves strength and flexibility throughout the body."
+                     data-img="{% static 'images/asanas/Surya_Namaskar.png' %}"
+                     data-target-url="{% url 'surya_namaskar' %}">
+                    <img src="{% static 'images/asanas/Surya_Namaskar.png' %}" alt="Surya Namaskar">
+                    <div class="card-overlay"><h3>Surya Namaskar</h3></div>
                 </div>
-            </div>
-        </section>
-        
-        <section id="gurus" class="gurus-section reveal">
-            <div class="container">
-                <h2>Meet The Team</h2>
-                <div class="gurus-grid">
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/shyam.jpg' %}" alt="Shyam Patidar">
-                        <h4>Shyam Patidar</h4>
-                        <p>Backend Developer</p>
-                    </div>
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/harsh.jpg' %}" alt="Harsh Gupta">
-                        <h4>Harsh Gupta</h4>
-                        <p>Frontend Developer</p>
-                    </div>
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/tulja.jpg' %}" alt="Tulja Yadav">
-                        <h4>Tulja Yadav</h4>
-                        <p>Database Engineer</p>
-                    </div>
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/chanchal.jpg' %}" alt="Chanchal Patidar">
-                        <h4>Chanchal Patidar</h4>
-                        <p>Backend Developer</p>
-                    </div>
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/ritika.jpg' %}" alt="Ritika Kushwah">
-                        <h4>Ritika Kushwah</h4>
-                        <p>Frontend Developer</p>
-                    </div>
-                    <div class="guru-card">
-                        <img src="{% static 'images/team/rajat.jpg' %}" alt="Rajat Saini">
-                        <h4>Rajat Saini</h4>
-                        <p>Database Engineer</p>
-                    </div>
+                <div class="asana-card"
+                     data-title="Sudarshan Kriya"
+                     data-details="Sudarshan Kriya is a powerful rhythmic breathing technique that harmonizes the body, mind, and emotions. It helps to reduce stress and release negative emotions."
+                     data-img="{% static 'images/asanas/Sudarshan_Kriya.png' %}"
+                     data-target-url="{% url 'sudarshan_kriya' %}">
+                    <img src="{% static 'images/asanas/Sudarshan_Kriya.png' %}" alt="Sudarshan Kriya">
+                    <div class="card-overlay"><h3>Sudarshan Kriya</h3></div>
                 </div>
-            </div>
-        </section>
-
-        {# New Yoga History Section #}
-        <section id="history" class="content-section reveal">
-            <div class="container">
-                <h2>History of Yoga</h2>
-                <p>Yoga's origins can be traced back to northern India over 5,000 years ago. The word 'yoga' was first mentioned in the ancient sacred texts called the Rig Veda. Here you can write more about the history of yoga, its evolution, different schools, and its global impact.</p>
-                <p>From ancient sages meditating in the Himalayas to modern studios in bustling cities, yoga has adapted and thrived, offering profound benefits for physical, mental, and spiritual health to millions worldwide.</p>
-            </div>
-        </section>
-    </main>
-   <footer>
-        <div class="container footer-content">
-            <div class="footer-about">
-                <h3>Yoga Sathi</h3>
-                <p>Your companion for a balanced and healthy life through the ancient wisdom of yoga.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#asanas">Asanas</a></li>
-                    <li><a href="#gurus">Gurus</a></li>
-                    <li><a href="#history">History</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4>Follow Us</h4>
-                <div class="social-media">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                <div class="asana-card"
+                     data-title="Trikonasana"
+                     data-details="Trikonasana, or Triangle Pose, is a foundational standing pose that strengthens the legs, stretches the hips and spine, and improves overall balance and stability."
+                     data-img="{% static 'images/asanas/Trikonasana.png' %}"
+                     data-target-url="{% url 'trikonasana' %}">
+                    <img src="{% static 'images/asanas/Trikonasana.png' %}" alt="Trikonasana">
+                    <div class="card-overlay"><h3>Trikonasana</h3></div>
+                </div>
+                <div class="asana-card"
+                     data-title="Vrikshasana"
+                     data-details="Vrikshasana, or Tree Pose, improves balance and stability. It strengthens the thighs, calves, ankles, and back, while also stretching the groin and inner thighs."
+                     data-img="{% static 'images/asanas/Vrikshasana.png' %}"
+                     data-target-url="{% url 'session' %}">
+                    <img src="{% static 'images/asanas/Vrikshasana.png' %}" alt="Vrikshasana">
+                    <div class="card-overlay"><h3>Vrikshasana</h3></div>
+                </div>
+                <div class="asana-card"
+                     data-title="Bhujangasana"
+                     data-details="Bhujangasana, or Cobra Pose, is a gentle back-bending asana that increases spinal flexibility, strengthens the back muscles, and opens the chest and shoulders."
+                     data-img="{% static 'images/asanas/Bhujangasana.png' %}"
+                     data-target-url="{% url 'session' %}">
+                    <img src="{% static 'images/asanas/Bhujangasana.png' %}" alt="Bhujangasana">
+                    <div class="card-overlay"><h3>Bhujangasana</h3></div>
+                </div>
+                <div class="asana-card"
+                     data-title="Shavasana"
+                     data-details="Shavasana, or Corpse Pose, is a resting pose for deep relaxation. It helps to cool down the body and integrate the benefits of the yoga practice."
+                     data-img="{% static 'images/asanas/Shavasana.png' %}"
+                     data-target-url="{% url 'session' %}">
+                    <img src="{% static 'images/asanas/Shavasana.png' %}" alt="Shavasana">
+                    <div class="card-overlay"><h3>Shavasana</h3></div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Yoga Sathi. Crafted with peace.</p>
+    </section>
+
+    <section id="gurus" class="gurus-section reveal">
+        <div class="container">
+            <h2>Meet The Team</h2>
+            <div class="gurus-grid">
+                <div class="guru-card">
+                    <img src="{% static 'images/team/shyam.jpg' %}" alt="Shyam Patidar">
+                    <h4>Shyam Patidar</h4>
+                    <p>Backend Developer</p>
+                </div>
+                <div class="guru-card">
+                    <img src="{% static 'images/team/harsh.jpg' %}" alt="Harsh Gupta">
+                    <h4>Harsh Gupta</h4>
+                    <p>Frontend Developer</p>
+                </div>
+                <div class="guru-card">
+                    <img src="{% static 'images/team/tulja.jpg' %}" alt="Tulja Yadav">
+                    <h4>Tulja Yadav</h4>
+                    <p>Database Engineer</p>
+                </div>
+                <div class="guru-card">
+                    <img src="{% static 'images/team/chanchal.jpg' %}" alt="Chanchal Patidar">
+                    <h4>Chanchal Patidar</h4>
+                    <p>Backend Developer</p>
+                </div>
+                <div class="guru-card">
+                    <img src="{% static 'images/team/ritika.jpg' %}" alt="Ritika Kushwah">
+                    <h4>Ritika Kushwah</h4>
+                    <p>Frontend Developer</p>
+                </div>
+                <div class="guru-card">
+                    <img src="{% static 'images/team/rajat.jpg' %}" alt="Rajat Saini">
+                    <h4>Rajat Saini</h4>
+                    <p>Database Engineer</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <section id="history" class="content-section reveal">
+        <div class="container">
+            <h2>History of Yoga</h2>
+            <p>Yoga's origins can be traced back to northern India over 5,000 years ago. The word 'yoga' was first mentioned in the ancient sacred texts called the Rig Veda. Here you can write more about the history of yoga, its evolution, different schools, and its global impact.</p>
+            <p>From ancient sages meditating in the Himalayas to modern studios in bustling cities, yoga has adapted and thrived, offering profound benefits for physical, mental, and spiritual health to millions worldwide.</p>
+        </div>
+    </section>
 
     <div id="asana-popup" class="popup-container">
         <div class="popup-content">
             <span class="close-btn">&times;</span>
-            <img id="popup-img" src="" alt="Asana Image"> {# Image tag added here #}
+            <img id="popup-img" src="" alt="Asana Image">
             <h2 id="popup-title">Asana Name</h2>
             <p id="popup-details">Full details about the asana will appear here.</p>
-            <button class="start-session-btn" onclick="window.location.href='{% url 'session' %}'">Start Session</button>
+            <button id="startSessionBtn" class="start-session-btn">Start Session</button>
         </div>
     </div>
-
-    <script src="{% static 'js/home_script.js' %}"></script>
-</body>
-</html>
+{% endblock content %}

@@ -49,17 +49,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const popupTitle = document.getElementById('popup-title');
     const popupDetails = document.getElementById('popup-details');
     const closeBtn = document.querySelector('.close-btn');
+    const startSessionBtn = document.getElementById('startSessionBtn'); // MODIFIED: Get the button by ID
 
     asanaCards.forEach(card => {
         card.addEventListener('click', () => {
             const title = card.getAttribute('data-title'); // Get title from data-title
             const details = card.getAttribute('data-details');
             const imgSrc = card.getAttribute('data-img'); // Get image source from data-img
+            const targetUrl = card.getAttribute('data-target-url'); // MODIFIED: Get the target URL from the card
             
             popupTitle.innerText = title;
             popupDetails.innerText = details;
             popupImg.src = imgSrc; // Set the image source
             popupImg.alt = title; // Set alt text for accessibility
+
+            // MODIFIED: Set the dynamic onclick for the Start Session button
+            if (startSessionBtn && targetUrl) {
+                startSessionBtn.onclick = () => {
+                    window.location.href = targetUrl;
+                };
+            }
             
             popup.classList.add('active');
         });
